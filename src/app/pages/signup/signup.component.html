@@ -1,5 +1,5 @@
 <div>
-    {{form.valid}}
+    
     <form [formGroup]="form" (submit)="sendData()">
         <div>
             <input type="text" name="fullname" placeholder="Full name" formControlName="name">
@@ -18,11 +18,16 @@
             <input type="password" name="confirm" placeholder="Confirm your password" formControlName="confirm">
         </div>
         <div>
-            <button>Sign up</button>
+            <label for="terms">I have read and agree to the Terms</label>
+            <input type="checkbox" name="terms" formControlName="terms">
+        </div>
+        <div>
+            <button routerLink="/login">Sign up</button>
         </div>
         <span *ngIf="form.errors && form.errors['passwordMismatch']">Passwords don't match</span>
         <div>
             Have an account? <a routerLink="/login">Log in</a>
         </div>
+        
     </form>
 </div>
